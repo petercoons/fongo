@@ -265,11 +265,10 @@ public final class Util {
     return newobj;
   }
 
-  public static <T> T firstNotNull(T first, T second) {
-    if (first == null) {
-      return second;
-    }
-    return first;
+  /**
+   * @return true if the projection should not be applied at all
+   */
+  public static boolean isProjectionEmpty(DBObject projection) {
+    return projection == null || projection.keySet().isEmpty();
   }
-
 }
